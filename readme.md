@@ -1,250 +1,126 @@
 #  Creando un formulario simple e interactivo 🍋
-![](https://res.cloudinary.com/www-ismyt-com/image/upload/v1628822848/IMAGENES/GITHUB/header-jordan-animation_c1is5k.svg)
+![Texto de encabezado](https://res.cloudinary.com/www-ismyt-com/image/upload/v1628822848/IMAGENES/GITHUB/header-jordan-animation_c1is5k.svg)
 <br>
 
-Dentro del desarrollo web y de cualquier área de desarrollo de software / programación encuentras que la recolección de datos siempre esta relacionada .
-<br>
-
-* **El famoso innerHTML:**
-```
-        contenedorCardsData.innerHTML += `
-                            <div class="contenedorCardsItems">
-                                <h4>${element.serial}</h4>
-                                <div class="contenedorStatus">
-                                    <span class="blue">${element.type}</span>
-                                    <span class="yellow">${element.status}</span>
-                                </div>
-
-                                <div class="contenedorTextos">
-                                    <p class="descripcion">${element.last_update}</p>
-                                    <p class="fechaLanzamiento">Fecha de Lanzamiento</p>
-                                    <p class="fechaLanzamientoContent">${element.original_launch}</p>
-                                </div>
-                            </div>
-                            `;
-    } else {
-
-        // Pasar código para mostrar advertencia de que no existen resultados
-
-    }
-}
-```
-
-<br>
-
-Siendo este un desarrollo que me tomó mas o menos 15 min crearlo, tiene muchas cosas que mejorar por lo que puedes agrear tus propias mejoras, puedes agregar filtros, de hecho el botón del filtro esta listado en la UI solo debes agregarle funcionalidad y practicar ya que el código para pasar peticiones fetch lo tienes acá: 
-
-<br>
-
-```
-async function busqueda() {
-    var categorie = document.querySelector('#categoria').value;
-    var spacexApi = await fetch(`https://api.spacexdata.com/v4/${categorie}`);
-    return spacexApi;
-}
-```
-Tres lineas de código que te permiten obtener la respuesta y poder manejarla como promesa para poder hacer con ella lo que quieras.
-
-<br>
-
-### **Veamos como se ve el diseño final 🍋**
-<br>
-
-![](https://res.cloudinary.com/www-ismyt-com/image/upload/v1629415140/IMAGENES/GITHUB/SPACEX-API/space-x-api-dashboard_cyuf4a.png)
-
-Los elementos amarrillos tienen una pequeña animación de loading, abajo verás el código.
+Una de las principales razones por las cuales te dedicas a ***desarrollar software*** es la mejora constante de tu potencial como programador, quiero que estos post sirvan de ejemplo de la evolución que puedes lograr desarrollando el habito de enfocarte y programar cada día a un nivel que supere tu nivel anterior.
 <br>
 <br>
 
-### 🍋 Solo se basa en un par de parametros que pasas a través de Fetch
-<br>
-Como siempre, trato de dejar el código de la forma mas entendible posible para que puedas reutilizar los estilos en cualquiera de tus frameworks favoritos, finalmente cuando envias la petición a través de fetch puedes manejar directamente esa respuesta, gracias a que el endpoint de SpaceX API te genera el resultado en base al query que estas haciendo y sin usar ní una sola clase. 
+## Inspiración
+Este proyecto fue creado con la finalidad de promover mi capacidad de desarrollo a nivel CSS/HTML/JS a un nivel muy básico, dentro del mismo intentó representar la forma más simple de emplear algunas pequeñas interacciones solo reutilizando las funciones que se encargan de las diferentes validaciones de los datos dentro del formulario.
+
+![Imagen de referencia](https://res.cloudinary.com/www-ismyt-com/image/upload/v1631081457/IMAGENES/GITHUB/FORM/screen-form-design-base_dumqqz.png)
+
+
+## El diseño
+
+![Diseño de formulario web](https://res.cloudinary.com/www-ismyt-com/image/upload/v1631080907/IMAGENES/GITHUB/FORM/screen-form-design_s7c60t.png)
+
+Bien, como parte importante del trabajo la inspiración de las diferentes imágenes está basada en la siguiente imagen original y el concepto de un formulario desarrollado para el concepto de barbería o cualquier otro tipo de proyecto pero variando la imagen de vector gráfico principal (SVG) construido con figma sin utilizar una herramienta profesional de diseño gráfico.
+
+Las interacciones y el resto de archivos también están construidos en forma solo exportado a CSS con el objetivo de lograr una mejor adaptación del diseño para asegurar una compatibilidad con el resto de dispositivos.
+
 <br>
 <br>
 
-![](https://res.cloudinary.com/www-ismyt-com/image/upload/v1629415264/IMAGENES/GITHUB/SPACEX-API/space-x-api-results_gpufaf.png)
+## El tecnicismo
+Ahora lo importante, destacamos lo más importante el truco CSS y JS para lograr las pequeñas interacciones.
 
-## ¿Conocimiento importantes para el desarrollo?
+Basándose en un diseño por componentes, está estructurado para que sea escalable lo que permite utilizar un elemento de tipo:
 
-* fetch API
-```
-:root {
-    --main-bg-color: #0E0E0E;
-    --secondary-bg-color: #161616;
-    --blue-color: #4E54FF;
-    --yellow-color: #F4E236;
-    --bg-cards: rgba(255, 255, 255, 0.103);
-}
-}
+![Diseño de input](https://res.cloudinary.com/www-ismyt-com/image/upload/v1631081120/IMAGENES/GITHUB/FORM/screen-form-design-input_pzxo4e.png)
+
+``` html
+<div class="inputApellido">
+    <input
+    type="text"
+    name="lastName"
+    placeholder="Introducir apellido..."
+    id="apellido"
+    />
+    <span data-animacion="true" class="spanApellido inputs"></span>
+</div>
+
 ```
 
-* CSS ( Grid / Flex / Keyframes )
-```
-header {
-    height: 200px;
-    width: 100%;
+Para poder utilizar la gran funcionalidad llamada:
+***Display grid*** que nos permite ser tan capaces y arquitectónicos como el mismo Bootstrap con un pequeño adhesivo de complejidad.
+
+``` css
+form {
     display: grid;
-    grid-template-columns: 20% 30% 20% 15% 15%;
-    grid-template-rows: 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(calc(1fr * 7));
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    padding: 0px 70px;
 }
 
 ```
 
-* CSS / Animación previa a la búsqueda 
+En todo caso, veamos algo del código JS donde principalmente seleccionas los elementos que estarás evaluando de forma completamente manual.
 
-```
-.loading::before {
-    content: "";
-    width: 40px;
-    height: 100%;
-    background: linear-gradient(96.4deg, rgba(255, 255, 255, 0) 4.54%, rgba(255, 255, 255, 0.265283) 57.15%, rgba(255, 255, 255, 0) 94.26%);
-    position: absolute;
-    opacity: .4;
-    animation: move 1s infinite;
-}
+``` javascript
+function validacionCelular() {
+    var textVal = celular.value;
+    vacio(textVal);
+    if (textVal.length > 7) {
+        spanCelular.dataset.animacion = "false";
+        svgCelular.style.fill = "black";
 
-//el keyframe
-@keyframes move {
-    0% {
-        transform: translateX(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateX(200px) rotate(20deg);
-    }
-    100% {
-        transform: translateX(0px) rotate(0deg);
+    } else {
+        spanCelular.dataset.animacion = "true"
+        svgCelular.style.fill = "none";
+
     }
 }
 
 ```
+Con el paso de los años puedes simplemente definir una objeto a través de la información que extraes del form para validar si existe algún campo vacío o para detectar el input en actividad, sin embargo no es lo que necesitamos, son pocos campos y simplemente no representa una ganancia en rendimiento de miles de bytes por lo tanto no invierto tiempo en esto (pero como reto, intentalo).
 
-* CSS / Estilización de la lista
+¡Okay!, prestemos atención al evento de escucha cuando un elemento esté en modo enfoque (que estés dentro del elemento con el fin de hacer algo)
 
-```
-.listaSeleccion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+Ahora este otro, que es básicamente un evento que detecta cuando la tecla está presionada, ojo con este evento puede que si el usuario solo presiona y mantiene presionada la tecla te genere datos estúpidamente sucios para joderte (generalmente se trata de algún dev pendejo que no tiene nada que hacer), puedes hacerlo más eficiente con un simple change o un simple input que son eventos maravillosos a la hora de hacer validaciones.
 
-.listaSeleccion select {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-family: Montserrat;
-    font-weight: 500;
-    color: var(--main-yellow);
-}
+![Validacion de estado de input](https://res.cloudinary.com/www-ismyt-com/image/upload/v1631081216/IMAGENES/GITHUB/FORM/screen-form-design-words_pwbrz2.png)
 
-.listaSeleccion select * {
-    background-color: var(--main-blue);
-    border: none;
-    box-shadow: none;
-}
-
-.listaSeleccion select>option {
-    background-color: var(--main-blue);
-    border: none;
-    box-shadow: none;
-    color: var(--main-yellow);
-}
-
+```js
+//animadores y validadores
+nombre.addEventListener("keyup", validacionNombre);
+apellido.addEventListener("keyup", validacionApellido);
+correo.addEventListener("keyup", validacionCorreo);
+celular.addEventListener("keyup", validacionCelular);
+mensaje.addEventListener("keyup", validacionMensaje);
 
 ```
 
+En la parte de refactorización simplemente tengo la misma función que hace visible o invisible la animación de “esta activo y escribiendo” lo cual ahora me parece bastante asqueroso pero así lo hacía antes de dominar al 100% el uso de this, o cualquier otro evento.
 
-* Javascript / Manejador de eventos principal
+``` js
+// Código que requiere factorización
+function interactionCorreo() {
+    spanCorreo.style.visibility = "visible"; +
+    validacionCorreo();
+    test = this.id;
+}
 
+function interactionCelular() {
+    spanCelular.style.visibility = "visible";
+    validacionCelular();
+    test = this.id;
+}
+
+function interactionMensaje() {
+    spanMensaje.style.visibility = "visible";
+    validacionMensaje();
+    test = this.id;
+}
 ```
 
-search.addEventListener('click', function(e) {
-    let select = categorie.value;
-    let string = txtSearch.value;
-    busqueda()
-        .then(data => { return data.json() })
-        .then(res => {
-            // console.log(res);
-            contenedorCardsData.innerHTML = "";
-            if (select == "capsules") {
-                res.forEach(element => {
-                    busquedaCapsules(element, string);
-                })
-            } else if (select == "history") {
-                res.forEach(element => {
-                    buscarHistory(element, string);
-                })
-            }
+Aquí viene una pequeña lógica de validación, esta validación simplemente es simple no requeriría un If/Else porque seguramente con un operador ternario podría solventar esto, sin embargo me gustan los If ya que aunque no es seguro que los recuerde en 3 meses si tengo agregar algún módulo o funcionalidad integrado con el form no tendré ni puta idea de que hacía este formulario con ese operador ternario (después de tu primer proyecto empresarial sabes que esto es una maldición de código de la que no te librarás.
 
-        });
+En fin, espero que tengas una idea básica de cómo construir validaciones con JS e interacciones que se alimentan de esa validación.
 
-
-});
-
-```
-
-* CSS / Microinteraction para el filtro
-```
-
-.contenedorFilter span {
-    width: 25px;
-    height: 2px;
-    margin: 3px;
-    background-color: var(--main-blue);
-    transition: .4s;
-    cursor: pointer;
-}
-
-.contenedorFilter:hover span {
-    width: 35px;
-}
-
-.contenedorFilter:hover span:nth-child(2) {
-    width: 10px;
-}
-
-.contenedorFilter span:nth-child(2) {
-    width: 15px;
-    height: 2px;
-    margin: 3px;
-    background-color: var(--main-yellow);
-}
-
-.contenedorFilter span:nth-child(3) {
-    width: 10px;
-    height: 2px;
-    margin: 3px;
-    background-color: var(--main-yellow);
-}
-
-.contenedorFilter:hover span:nth-child(3) {
-    width: 5px;
-}
-
-```
-
-
-
-> Sí no conoces CSS, JS te costará mil veces .
-
-<br>
-<br>
-
-## Este código no ha sido testeado, por lo tanto lo puedes mejorar mil veces mas
-
-<br>
-Parte importante de tu aprendizaje en web design, es la utilización de APIs y manejo del DOM con un enfoque en desarrollo web 2021, evita esmerarte en que tu aplicación sea compatible con IE, ya tiene una muerte anunciada así que mejorar preparate para adentrarte en del desarrollo mordenos, APIS, Frameworks, Javascript Moderno...
-<br>
-
-
-
-
-Es el encarga de cambiar la propiedad de display none a block y viceversa, puedes animar la transición del elemento contenedor como práctica o simplemente dejarlo como está actualmente.
-
-<br>
 
 Este es mi correo profesional ***jose@joseamaya.tech***, si me escribes te aseguro que tendrás una respuesta.
 
@@ -259,10 +135,10 @@ Atentamente,
 <br>
 <br>
 
-[Link al repo](https://github.com/syntaxter/spacex-api-rockets)
+[Link al repo](https://github.com/syntaxter/web-form-validation)
 <br>
 
-[Link a la demo](https://syntaxter.github.io/spacex-api-rockets/)
+[Link a la demo](https://syntaxter.github.io/web-form-validation/)
 <br>
 
 [Siguemente en las redes como @syntaxter](https://www.instagram.com/syntaxter/)
