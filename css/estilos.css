@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+nav.menu {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+/*logos*/
+
+.contenedor-logo {
+    height: 100%;
+    width: 50%;
+}
+
+.contenedor-logo img:hover {
+    transform: rotate(6deg);
+}
+
+.contenedor-logo img {
+    width: 90px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.contenedor-logo span {
+    width: 90px;
+    height: 40px;
+    box-sizing: border-box;
+    font-family: "Segoe Script";
+    position: relative;
+}
+
+.contenedor-logo span::before {
+    position: absolute;
+    top: 8px;
+    right: -15px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+
+/*items de menu*/
+
+.contenedorItems {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: Montserrat;
+    font-weight: 400;
+    justify-content: flex-end;
+}
+
+.contenedorItems a {
+    text-decoration: none;
+    color: black;
+    margin-right: 25px;
+}
+
+#botonContacto {
+    border: 1px solid black;
+    padding: 5px 10px;
+    transition: 0.4s ease;
+    border-radius: 13px 20px 30px;
+}
+
+#botonContacto:hover {
+    border: 1px solid black;
+    padding: 5px 10px;
+    transition: 0.4s ease;
+    transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    border-radius: 13px 20px 30px;
+    background-color: black;
+    color: white;
+}
+
+.contenedorItems a:hover {
+    text-decoration: none;
+    color: orange;
+    margin-right: 25px;
+    transition: 0.4s ease;
+}
+
+
+/*contenedor de los textos que estan a la derecha*/
+
+main {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.contenedorText {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+.contenedorText h1 {
+    margin-top: 40px;
+    margin-left: 30px;
+    width: 100%;
+    font-size: 40px;
+    font-family: "Segoe Script";
+}
+
+.contenedorText img {
+    width: 70%;
+}
+
+
+/*estilos del formulario*/
+
+.contenedor-form {
+    width: 50%;
+    height: 100%;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(calc(1fr * 7));
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    padding: 0px 70px;
+}
+
+input {
+    width: 100%;
+}
+
+.tituloForm {
+    font-family: Montserrat;
+    grid-column: 1/3;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(160, 160, 160);
+    background-color: transparent;
+    height: 40px;
+    font-family: Montserrat;
+}
+
+#boton {
+    border: none;
+    -webkit-border: none;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    width: 50px;
+    cursor: pointer;
+}
+
+i[data-zoom="true"] {
+    cursor: pointer;
+    animation: zoom 0.4s linear infinite;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+input:active,
+input:focus {
+    background-color: transparent;
+    height: 40px;
+    font-family: Montserrat;
+    border-bottom: 2px solid rgb(44, 44, 44);
+}
+
+
+/*estilos personalizados*/
+
+.inputMensaje {
+    grid-column: 1/3;
+    height: 45px;
+}
+
+input::placeholder {
+    color: rgb(196, 196, 196);
+}
+
+.inputName::before {
+    content: "NOMBRE";
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inputApellido::before {
+    content: "APELLIDO";
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inputEmail::before {
+    content: "CORREO";
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inputCelular::before {
+    content: "CELULAR";
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inputMensaje::before {
+    content: "MENSAJE";
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inputBoton {
+    grid-column: 1/3;
+}
+
+.contenedor-contacto {
+    margin-top: 40px;
+    grid-column: 1/3;
+    font-family: Montserrat;
+}
+
+.contenedor-contacto h4 {
+    color: rgb(194, 194, 194);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.contenedor-contacto p {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+}
+
+
+/*estilos para el pie de paginas*/
+
+.footer {
+    height: 6%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+.creditos {
+    color: white;
+    font-family: Montserrat;
+    font-size: 13px;
+}
+
+.creditos p {
+    margin-left: 15px;
+}
+
+.social {
+    color: white;
+    font-family: Montserrat;
+    font-size: 13px;
+    position: relative;
+    text-align: right;
+}
+
+.social a {
+    color: white;
+    font-family: Montserrat;
+    font-size: 13px;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.contendorTextInteraction {
+    position: absolute;
+    top: 0px;
+    transform: translateY(400px) translateX(260px);
+}
+
+
+/*Micro Interaciones*/
+
+#nombre {
+    width: 100%;
+}
+
+.inputs {
+    transform: translateY(50%);
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 50%;
+    animation: rotacion 1s infinite;
+    visibility: hidden;
+}
+
+.inputName span[data-animacion="true"] {
+    position: absolute;
+    animation: rotacion 1s infinite;
+}
+
+.inputName span[data-animacion="false"] {
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+    animation: none;
+}
+
+.inputApellido span[data-animacion="true"] {
+    position: absolute;
+    animation: rotacion 1s infinite;
+}
+
+.inputApellido span[data-animacion="false"] {
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+    animation: none;
+}
+
+.inputEmail span[data-animacion="true"] {
+    position: absolute;
+    animation: rotacion 1s infinite;
+}
+
+.inputEmail span[data-animacion="false"] {
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+    animation: none;
+}
+
+.inputCelular span[data-animacion="true"] {
+    position: absolute;
+    animation: rotacion 1s infinite;
+}
+
+.inputCelular span[data-animacion="false"] {
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+    animation: none;
+}
+
+.inputMensaje span[data-animacion="true"] {
+    position: absolute;
+    animation: rotacion 1s infinite;
+}
+
+.inputMensaje span[data-animacion="false"] {
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+    animation: none;
+}
+
+
+/*tips*/
+
+.tips {
+    position: absolute;
+    top: 140px;
+    left: 200px;
+    width: 200px;
+    height: 100px;
+    border: 0.1px solid rgb(173, 173, 173);
+    border-radius: 50px;
+    border-bottom-left-radius: 0px;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: Montserrat;
+    font-weight: 300;
+    font-size: 13px;
+    opacity: 0;
+    transition: 2.5s;
+}
+
+
+/*animaciones*/
+
+@keyframes rotacion {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

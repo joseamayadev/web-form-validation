@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de compra</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+    <script
+      src="https://kit.fontawesome.com/56de99d4d1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="contenedor">
+      <nav class="menu">
+        <div class="contenedor-logo">
+          <img src="img/logo.svg" alt="" />
+          <span>the shef</span>
+        </div>
+        <div class="contenedorItems">
+          <a href="#">Servicios</a>
+          <a href="#">Productos</a>
+          <a id="botonContacto" href="#">Contacto</a>
+        </div>
+      </nav>
+      <main>
+        <div class="contenedorText">
+          <span class="tips">Text content for tips</span>
+          <img src="img/chef.svg" alt="" />
+          <div class="contendorTextInteraction">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="230.285"
+              height="189.471"
+              viewBox="0 0 230.285 189.471"
+            >
+              <g id="INTERACTIONS" transform="translate(-279.066 -323.818)">
+                <text
+                  id="MENSAJE"
+                  transform="translate(472.039 510.468) rotate(-83)"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="1"
+                  font-size="29"
+                  font-family="SegoeScript, Segoe Script"
+                >
+                  <tspan x="0" y="0">MENSAJE</tspan>
+                </text>
+                <text
+                  id="NOMBRE"
+                  transform="translate(311.942 490.444) rotate(-83)"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="1"
+                  font-size="29"
+                  font-family="SegoeScript, Segoe Script"
+                >
+                  <tspan x="0" y="0">NOMBRE</tspan>
+                </text>
+                <text
+                  id="APELLIDO"
+                  transform="translate(351.225 494.938) rotate(-83)"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="1"
+                  font-size="29"
+                  font-family="SegoeScript, Segoe Script"
+                >
+                  <tspan x="0" y="0">APELLIDO</tspan>
+                </text>
+                <text
+                  id="CORREO"
+                  transform="translate(385.532 496.956) rotate(-83)"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="1"
+                  font-size="29"
+                  font-family="SegoeScript, Segoe Script"
+                >
+                  <tspan x="0" y="0">CORREO</tspan>
+                </text>
+                <text
+                  id="CELULAR"
+                  transform="translate(431.319 503.992) rotate(-83)"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="1"
+                  font-size="29"
+                  font-family="SegoeScript, Segoe Script"
+                >
+                  <tspan x="0" y="0">CELULAR</tspan>
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="contenedor-form">
+          <form action="" name="contacto">
+            <h3 class="tituloForm">Contáctame</h3>
+            <div class="inputName">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="Introducir nombre..."
+                id="nombre"
+              />
+
+              <span data-animacion="true" class="aniNombre inputs"></span>
+            </div>
+            <div class="inputApellido">
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Introducir apellido..."
+                id="apellido"
+              />
+              <span data-animacion="true" class="spanApellido inputs"></span>
+            </div>
+            <div class="inputEmail">
+              <input
+                type="email"
+                placeholder="Introducir correo..."
+                id="correo"
+              />
+              <span data-animacion="true" class="spanCorreo inputs"></span>
+            </div>
+            <div class="inputCelular">
+              <input
+                type="phone"
+                id="celular"
+                placeholder="Introducir celular..."
+              />
+              <span data-animacion="true" class="spanCelular inputs"></span>
+            </div>
+            <div class="inputMensaje">
+              <input type="text" id="mensaje" placeholder="Mensaje" />
+              <span data-animacion="true" class="spanMensaje inputs"></span>
+            </div>
+            <div class="inputBoton">
+              <input type="button" value="Enviar" id="boton" />
+              <i
+                id="zoom"
+                data-zoom="false"
+                class="fas fa-arrow-circle-right"
+              ></i>
+            </div>
+
+            <div class="contenedor-contacto">
+              <h4>Enviame un correo</h4>
+              <p>joseamaya@joseamaya.com</p>
+            </div>
+          </form>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="creditos">
+          <p>
+            Politica de privacidad - Moderna y con impacto social (leala ahora)
+          </p>
+        </div>
+        <div class="social">
+          <a href="#">correo@correo.com</a>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+        </div>
+      </footer>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
